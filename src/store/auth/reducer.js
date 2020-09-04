@@ -1,6 +1,8 @@
 import {LOGIN_SUCCESS} from './actions'
+import {Storage} from '../../helpers'
+
 const initialState = {
-    ACCESS_TOKEN:""
+    ACCESS_TOKEN:Storage.getToken() || ""
 }
 
 export default function AuthReducer(state=initialState,action){

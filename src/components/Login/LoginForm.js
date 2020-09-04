@@ -9,7 +9,6 @@ export default function LoginForm({handleLogin}){
             ...form,
             [keyField]:e.target.value
         })
-        console.log("key: ",keyField,"--- ",e.target.value)
     }
     const onSubmitForm = (e)=>{
         e.preventDefault();
