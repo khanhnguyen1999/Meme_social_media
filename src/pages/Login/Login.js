@@ -7,11 +7,26 @@ import {actLoginSuccess,asyncHandleLogin } from '../../store/auth/actions'
 import {useHistory} from 'react-router-dom'
 import {PATHS} from '../../constants'
 import {useNotAuth} from '../../helpers'
+import { notification } from 'antd';
+
 
 export default function Login() {
   useNotAuth();
   const dispatch = useDispatch()
   const history = useHistory()
+
+
+  // --------- NOTIFICATION------------
+
+  const openNotification = (type,err) => {
+    notification[type]({
+      message: 'Lỗi',
+      description:err,
+      onClick: () => {
+        console.log('Notification Clicked!');
+      },
+    });
+  };
 
   // ------- THUNK MIDDLEWARE----------
 
@@ -23,6 +38,7 @@ export default function Login() {
           history.push(PATHS.HOMEPAGE)
         }
         else {
+          openNotification('error',res.error)
           console.log(res.error)
         }
       })

@@ -1,0 +1,8 @@
+1. API Public
+2. API Private
+    2.1 API đăng nhập user bình thường
+    2.2 API đăng nhập user admin
+
+
+User không được active/deactive user khác
+Admin mới được kích hoạt , mới được vô hiệu hoá User khác

@@ -34,7 +34,7 @@ export const asyncHandleLogin = ({email,password})=>{
             dispatch(actHideLoading())
             if(response.data.status!==200){
             // lỗi phía server
-                alert(response.data.error)
+                // alert(response.data.error)
                 return {ok:false,error:response.data.error}
             }
             else{
