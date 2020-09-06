@@ -2,7 +2,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import HomePage from "../pages/HomePage";
 import UserDetail from "../pages/UserDetail";
-
+import UserProfile from '../pages/UserProfile'
 import { PATHS } from "../constants";
 
 export const Routers = [
@@ -25,5 +25,10 @@ export const Routers = [
     path: PATHS.USER_DETAIL,
     exact: true,
     component: UserDetail,
+  },
+  {
+    path: PATHS.USER_PROFILE,
+    exact: true,
+    component: UserProfile,
   }
 ]
