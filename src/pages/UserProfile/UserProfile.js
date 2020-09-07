@@ -2,8 +2,9 @@ import React,{useEffect,useState,useMemo} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import {useAuth} from '../../helpers'
 import {useUserId } from '../../helpers'
-import {asyncGetUserById } from '../../store/user/actions'
+import {asyncGetUserById,asyncUpdateProfile } from '../../store/user/actions'
 import defaultImage from '../../assets/images/765-default-avatar.png'
+import {UserProfileView} from './UserProfile.view'
 
 const initialState = {
   file:null,
@@ -79,58 +80,40 @@ const handleChangeFile = (evt)=>{
   }
 }
 const onShowInpuFile = ()=>{
+  // dùng useRef của Hooks truy cập DOM luôn vào ô input mà không cần dùng id
   const inputFile = document.getElementById("fileAvatar")
   if(inputFile && inputFile.click){
     inputFile.click()
   }
 }
+  const handlSubmit = (e) =>{
+    e.preventDefault()
+    const data = {
+      avatar:objectFile.file,
+      fullname:userInfor.fullname,
+      description:userInfor.description,
+      gender:userInfor.gender
+    }
+    console.log("submit: ",data)
+    dispatch(asyncUpdateProfile(data))
+      .then(res=>{
+        console.log("res",res)
+        if(res.ok){
+          // gọi api thành công -> reset lại previewimage và objectfile đã chọn trước đó về null
+          setObjectFile(initialState)
+        }
+      })
+  }
+    const injectedProps = {
+      userInfor,
+      onShowInpuFile,
+      finalAvatar,
+      onChangeData,
+      handleChangeFile,
+      currentUser,
+      handlSubmit
+    }
   return (
-    <main>
-        <div className="ass1-login">
-          <div className="ass1-login__content">
-            <p>Profile</p>
-            <div className="ass1-login__form">
-              <div style={{cursor:"pointer"}} className="avatar" onClick={onShowInpuFile}>
-                <img src={finalAvatar} alt="" />
-              </div>
-              <form action="#">
-                <input
-                  onChange={onChangeData('fullname')}
-                  value={userInfor?.fullname||""}
-                  type="text" className="form-control"
-                  placeholder={currentUser?.fullname}
-                />
-                <select
-                  onChange={onChangeData('gender')}
-                  value={userInfor?.gender||""}
-                  className="form-control"
-                >
-                  <option value disabled>Giới tính</option>
-                  <option value="nam">Nam</option>
-                  <option value="nu">Nữ</option>
-                </select>
-                <input
-                  id="fileAvatar"
-                  onChange={handleChangeFile}
-                  type="file" name="avatar"
-                  placeholder="Ảnh đại diện"
-                  className="form-control"
-                />
-                <textarea
-                  onChange={onChangeData('description')}
-                  value={userInfor?.description||""}
-                  className="form-control"
-                  cols={30} rows={5}
-                  placeholder="Mô tả ngắn ..."
-                  defaultValue={""}
-                />
-                <div className="ass1-login__send justify-content-center">
-                  <button type="submit" className="ass1-btn">Cập nhật</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </main>
+    <UserProfileView {...injectedProps}/>
   )
 }

@@ -38,3 +38,32 @@ export const asyncGetUserById = ({userid})=>{
         }
     }
 }
+
+export const asyncUpdateProfile = ({avatar,gender,fullname,description})=>{
+    return async (dispatch)=>{
+        try{    
+            let formData = new FormData();
+            formData.append('gender',gender)
+            formData.append('fullname',fullname)
+            formData.append('description',description)
+            if(avatar){
+                formData.append('avatar',avatar)
+            }
+            dispatch(actShowLoading())
+            const response = await userService.updateProfile(formData)
+            dispatch(actHideLoading())
+            if(response?.data?.status===200){
+                const user = response.data.user
+                dispatch(actSetUserInfo({user}))
+                return {
+                    ok:true,
+                    user:user
+                }
+            }
+        }
+        catch(e){
+            dispatch(actHideLoading());
+            return { ok:false,error:e.message}
+        }
+    }
+}

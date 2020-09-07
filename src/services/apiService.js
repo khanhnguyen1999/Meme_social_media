@@ -1,4 +1,6 @@
 import axios from 'axios'
+import {Storage} from '../helpers'
+
 const baseURL = "http://api-meme-zendvn-01.herokuapp.com/api/"
 
 
@@ -12,13 +14,16 @@ const api = {
             }
         })
     },
-    callWithAuth(){
+    callWithAuth(headers = {}){
+        const token = Storage.getToken();
         // cấu hình header
         return axios.create({
             baseURL,
             headers: {
                 'Content-Type':'application/json',
-                'Authorization':'Bearer my-token'
+                'Authorization':`Bearer ${token.token}`,
+                ...headers
+                // 'accept': 'multipart/form-data' // tuỳ vào api / chỉ những api tương tác với file 
             }
         })
     }
