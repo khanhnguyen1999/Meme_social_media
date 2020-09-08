@@ -8,6 +8,7 @@ import {useHistory} from 'react-router-dom'
 import {PATHS} from '../../constants'
 import {useNotAuth} from '../../helpers'
 import { notification } from 'antd';
+import '../../assets/style.css'
 
 
 export default function Login() {

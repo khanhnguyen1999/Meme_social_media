@@ -14,7 +14,7 @@ export default function SectionItem({post}){
         <div className="ass1-section__item">
                 <div className="ass1-section">
                     <div className="ass1-section__head">
-                        <Link to={PATHS.USER_DETAIL} className="ass1-section__avatar ass1-avatar"><img src={post.profilepicture} alt="" /></Link>
+                        <Link to={PATHS.USER_DETAIL} className="ass1-section__avatar ass1-avatar"><img src={post.profilepicture || "/assets/images/765-default-avatar.png"} alt="" /></Link>
                         <div>
                         <Link to={PATHS.USER_DETAIL} className="ass1-section__name">{post.fullname}</Link>
                         <span className="ass1-section__passed">{timer}</span>
@@ -27,7 +27,7 @@ export default function SectionItem({post}){
                         </div>
                     </div>
                     <div className="ass1-section__footer">
-                        <Link to={PATHS.POST_DETAIL}><i className="icon-Comment_Full" /><span>{post.count}</span></Link>
+                        <Link to={PATHS.POST_DETAIL}><i className="icon-Comment_Full" /><span>{post.count || 0}</span></Link>
                     </div>
                 </div>
         </div>
