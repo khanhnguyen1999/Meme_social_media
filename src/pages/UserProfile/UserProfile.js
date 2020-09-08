@@ -26,6 +26,7 @@ export default function UserProfile() {
   },[currentUser])
   useEffect(()=>{
     console.log("userid ",userid)
+    if(!currentUser){
     // Gọi api để lấy thông tin của currrent user dựa vào token
     dispatch(asyncGetUserById({userid}))
       .then(response => {
@@ -35,7 +36,7 @@ export default function UserProfile() {
           // không cho phép truy cập vào trang profile
           alert("error")
         }
-      })
+      })}
   },[userid,dispatch])
 
   const finalAvatar = useMemo(()=>{

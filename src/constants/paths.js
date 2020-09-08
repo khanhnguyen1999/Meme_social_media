@@ -3,6 +3,7 @@ const PATHS = {
   HOMEPAGE: "/",
   LOGIN: "/login",
   POST_CREATE: "/post/create",
+  POST_LIST_CATEGORY: "/posts/category/:category_id",
   POST_DETAIL: "/post/:post_id",
   REGISTER: "/register",
   USER_DETAIL: "/users/:user_id",

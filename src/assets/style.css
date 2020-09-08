@@ -2255,11 +2255,13 @@ select.form-control:focus {
 }
 .ass1-header__nav > .container ul {
   margin: 15px 0;
-  flex-direction: column;
+  flex-direction: row;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  flex-wrap:wrap;
+  width:100%;
 }
 @media only screen and (max-width: 768px) {
   .ass1-header__nav > .container ul {
@@ -2268,8 +2270,9 @@ select.form-control:focus {
 }
 .ass1-header__nav > .container ul li {
   text-align: center;
+  width:25%;
 }
-.ass1-header__nav > .container ul li:not(:first-child) {
+.ass1-header__nav > .container ul li {
   margin-top: 8px;
 }
 .ass1-header__nav > .container ul li a:hover {
