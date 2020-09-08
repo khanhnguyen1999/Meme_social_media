@@ -8,7 +8,7 @@ export default function HomePage() {
   const dispatch = useDispatch()
   useEffect(()=>{
     dispatch(asyncGetListNews())
-  },[dispatch])
+  },[])
   return (
     <main>
 		  <div className="container">

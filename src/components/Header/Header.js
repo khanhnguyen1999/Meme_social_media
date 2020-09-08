@@ -87,11 +87,18 @@ export default function Header() {
             </div>
             
             {
-              currentUser ? <> <Link to={PATHS.POST_CREATE} className="ass1-header__btn-upload ass1-btn">
+              currentUser ? <> 
+              <Link to={PATHS.POST_CREATE} className="ass1-header__btn-upload ass1-btn">
               <i className="icon-Upvote" /> Upload
-            </Link> <p>{currentUser.fullname}</p>  <a onClick={handleDelete} style={{color:"#fff"}} className="ass1-header__btn-upload ass1-btn">
+              </Link>
+              <Link to={PATHS.USER_PROFILE} className="ass1-header__btn-upload ass1-btn">
+              <i className="icon-Upvote" /> Update Profile
+              </Link>
+              <p>{currentUser.fullname}</p> 
+              <a onClick={handleDelete} style={{color:"#fff"}} className="ass1-header__btn-upload ass1-btn">
               LogOut
-            </a> </> :<Link to={PATHS.LOGIN} className="ass1-header__btn-upload ass1-btn">
+              </a>
+              </> :<Link to={PATHS.LOGIN} className="ass1-header__btn-upload ass1-btn">
               Login
             </Link>
             }
