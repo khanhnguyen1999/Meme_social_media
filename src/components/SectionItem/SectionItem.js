@@ -2,6 +2,7 @@ import React from 'react'
 import {PATHS} from '../../constants'
 import {Link} from 'react-router-dom'
 import dayjs from 'dayjs'
+import locale_vi from 'dayjs/locale/vi'
 import relativeTime from 'dayjs/plugin/relativeTime'
 
 dayjs.extend(relativeTime)
