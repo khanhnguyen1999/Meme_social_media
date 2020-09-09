@@ -1,9 +1,9 @@
 import React from 'react'
 import {SectionItem} from '../SectionItem'
-import {useSelector} from 'react-redux'
+// import {useSelector} from 'react-redux'
 
-export default function SectionList(){
-    const listPosts = useSelector(state=>state.Post.listNewsItem)
+export default function SectionList({listPosts}){
+    // const listPosts = useSelector(state=>state.Post.listNewsItem)
     //Trong lifecycle get api lấy danh sách post về
     //truyền từng post vào trong props của sectionitem
     return (

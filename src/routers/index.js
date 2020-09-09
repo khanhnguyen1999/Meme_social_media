@@ -3,6 +3,7 @@ import Register from "../pages/Register";
 import HomePage from "../pages/HomePage";
 import UserDetail from "../pages/UserDetail";
 import UserProfile from '../pages/UserProfile'
+import SearchResult from '../pages/SearchResult'
 import { PATHS } from "../constants";
 
 export const Routers = [
@@ -29,6 +30,11 @@ export const Routers = [
   {
     path: PATHS.USER_PROFILE,
     exact: true,
-    component: UserProfile,
+    component: UserProfile
+  },
+  {
+    path: PATHS.SEARCH_RESULT,
+    exact: true,
+    component: SearchResult,
   }
 ]

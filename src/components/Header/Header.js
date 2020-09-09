@@ -1,6 +1,7 @@
 import React,{useEffect} from "react";
 import {useSelector,useDispatch} from 'react-redux'
 import { Button, notification } from 'antd';
+import HeaderSearch from './HeaderSearch'
 import {useHistory,useLocation} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import {PATHS,CATEGORIES} from '../../constants'
@@ -77,15 +78,7 @@ export default function Header() {
                 </li>
               </ul>
             </nav>
-            <div className="ass1-header__search">
-              <form action="#">
-                <label>
-                  <input type="search" name="search-text" className="form-control" placeholder="Nhập từ khóa ..." />
-                  <i className="icon-Search" />
-                </label>
-              </form>
-            </div>
-            
+            <HeaderSearch/>
             {
               currentUser ? <> 
               <Link to={PATHS.POST_CREATE} className="ass1-header__btn-upload ass1-btn">

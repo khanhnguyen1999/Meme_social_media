@@ -2572,6 +2572,9 @@ select.form-control:focus {
   margin-bottom: 8px;
   width: 50%;
 }
+mark{
+  background:yellow!important;
+}
 .ass1-aside .ass1-aside__edit-post-head .ass1-checkbox p {
   margin-left: 6px;
   font-size: 14px;
