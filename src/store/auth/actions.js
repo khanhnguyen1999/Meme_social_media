@@ -1,4 +1,4 @@
-import {api} from '../../services'
+// import {api} from '../../services'
 import {authService} from '../../services/index'
 import {actShowLoading,actHideLoading} from '../app/action'
 import {actSetUserInfo} from '../user/actions'
@@ -22,12 +22,10 @@ export const actLoginSuccess = ({token})=>{
 
 // asynchandlelogin là 1 function return về một function khác
 export const asyncHandleLogin = ({email,password})=>{
-    console.log("email ",email," password",password)
     // làm sao có thể sử dụng được dispatch ở trong asynchandlelogin
     return async (dispatch,getGlobalState)=>{
-        console.log("getGlobalState",getGlobalState())
         try{
-            const data = {email,password}
+            // const data = {email,password}
             // trước khi gọi api thì cho show loading
             dispatch(actShowLoading());
             const response = await authService.login({email,password})

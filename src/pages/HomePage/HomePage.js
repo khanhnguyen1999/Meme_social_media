@@ -11,7 +11,7 @@ export default function HomePage() {
   const [currPage,setCurrPage] = useState(1)
   const [isCallingAPI,setIsCallingAPI] = useState(false)
   const [isEmpty,setIsEmpty]=useState(false)
-  const [pagesize,setPagesize] = useState(5)
+  const [pagesize] = useState(5)
   const listPosts = useSelector(state=>state.Post.listNewsItem)
   useEffect(()=>{
     setIsCallingAPI(true)

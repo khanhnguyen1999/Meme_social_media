@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import {useSelector,useDispatch} from 'react-redux'
-import { Button, notification } from 'antd';
+// import { Button, notification } from 'antd';
 import HeaderSearch from './HeaderSearch'
 import {useHistory,useLocation} from 'react-router-dom'
 import {Link} from 'react-router-dom'
@@ -11,9 +11,9 @@ import {asyncGetUserById } from '../../store/user/actions'
 // import {Storage} from '../../helpers'
 
 export default function Header() {
-  const token = useSelector(state=>state.Auth.ACCESS_TOKEN)
-  console.log("token ",token.token)
+  // const token = useSelector(state=>state.Auth.ACCESS_TOKEN)
   const userid = useUserId()
+  console.log(userid)
   const dispatch = useDispatch()
   const currentUser = useSelector(state=>state.User.currentUser)
   const history = useHistory()
@@ -37,7 +37,6 @@ export default function Header() {
   });
   },[])
   useEffect(()=>{
-    console.log("userid ",userid)
     // Gọi api để lấy thông tin của currrent user dựa vào token
     dispatch(asyncGetUserById({userid}))
       // .then(response => {
@@ -87,7 +86,9 @@ export default function Header() {
               <Link to={PATHS.USER_PROFILE} className="ass1-header__btn-upload ass1-btn">
               <i className="icon-Upvote" /> Update Profile
               </Link>
-              <p>{currentUser.fullname}</p> 
+              <Link to={PATHS.USER_DETAIL.replace(":user_id",userid)} className="ass1-header__btn-upload ass1-btn">
+              <i className="icon-Upvote" /> {currentUser.fullname}
+              </Link>
               <a onClick={handleDelete} style={{color:"#fff"}} className="ass1-header__btn-upload ass1-btn">
               LogOut
               </a>

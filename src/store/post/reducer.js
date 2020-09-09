@@ -1,7 +1,8 @@
 import {SET_LIST_POST,SET_SEARCH_RESULT} from './actions'
 const initialState = {
     listNewsItem : [],
-    searchResult : []
+    searchResult : [],
+    hashUserPostsData : {}
 }
 // thay thế luôn array cũ
 // hay là push vào và giữ nguyên data cũ

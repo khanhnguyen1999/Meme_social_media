@@ -7,7 +7,7 @@ export default function Sidebar(){
             <div>Bài viết gần đây của bạn.</div>
             </div>
             <div>Vui lòng đăng nhập để xem nội dung này
-            <a href="#">Đăng nhập</a>
+            <a href="#/">Đăng nhập</a>
             </div>
         </aside>
     )

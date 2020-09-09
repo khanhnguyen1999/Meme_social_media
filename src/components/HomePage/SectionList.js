@@ -9,8 +9,8 @@ export default function SectionList({listPosts}){
     return (
         <div className="ass1-section__list">
             {
-                listPosts && listPosts.map((post)=>{
-                    return (<SectionItem key={post.PID} post={post}/>)
+                listPosts && listPosts.map((post,index)=>{
+                    return (<SectionItem key={index} post={post}/>)
                 })
             }
         </div>
